@@ -18,6 +18,8 @@
  * 
 */
 
+const navbarList = document.getElementById('navbar__list')
+const allSections = document.querySelectorAll('section')
 
 /**
  * End Global Variables
@@ -33,8 +35,14 @@
  * 
 */
 
-// build the nav
+// Build the nav & menu and scroll to section on link click
 
+allSections.forEach(item => {
+    let navListItems = item = `<li><a href="#${item.id}" class="menu__link" data-menu-link="${item.id}">${item.getAttribute("data-nav")}</a></li>`
+    navbarList.insertAdjacentHTML('beforeend', navListItems);
+})
+
+// Set sections as active
 
 // Add class 'active' to section when near top of viewport
 
@@ -47,11 +55,3 @@
  * Begin Events
  * 
 */
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
