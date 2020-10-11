@@ -44,18 +44,20 @@ allSections.forEach(item => {
 });
 
 // Add class 'active' to section when near top of viewport
+// Set sections as active in navbar
 
 window.addEventListener("scroll", event => {
     let fromTop = window.scrollY;
 
     allSections.forEach(item => {
         let section = document.querySelector(`#${item.id}`);
-        
+        let navLink = document.querySelector(`[data-menu-link='${item.id}']`);
+
         // Ternary operator
         section.offsetTop - 300 <= fromTop &&
-        section.offsetTop - 300 + section.offsetHeight > fromTop ?
-            item.classList.add("active") :
-            item.classList.remove("active");
+            section.offsetTop - 300 + section.offsetHeight > fromTop ?
+            item.classList.add("active") & navLink.classList.add("active") :
+            item.classList.remove("active") & navLink.classList.remove("active");
     });
 });
 
@@ -76,5 +78,3 @@ document.querySelectorAll('.menu__link').forEach(link => {
  * Begin Events
  * 
  */
-
-// Set sections as active in navbar
