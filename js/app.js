@@ -45,6 +45,19 @@ allSections.forEach(item => {
 
 // Add class 'active' to section when near top of viewport
 
+window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    allSections.forEach(item => {
+        let section = document.querySelector(`#${item.id}`);
+        
+        // Ternary operator
+        section.offsetTop - 300 <= fromTop &&
+        section.offsetTop - 300 + section.offsetHeight > fromTop ?
+            item.classList.add("active") :
+            item.classList.remove("active");
+    });
+});
 
 // Scroll to anchor ID using scrollTO event
 document.querySelectorAll('.menu__link').forEach(link => {
