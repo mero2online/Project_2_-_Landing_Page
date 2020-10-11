@@ -20,7 +20,6 @@
 
 const navbarList = document.getElementById('navbar__list')
 const allSections = document.querySelectorAll('section')
-const allMenuLinks = document.querySelectorAll('.menu__link')
 
 /**
  * End Global Variables
@@ -36,7 +35,7 @@ const allMenuLinks = document.querySelectorAll('.menu__link')
  * 
  */
 
-// Build the nav & menu and scroll to section on link click
+// Build the nav & menu
 
 allSections.forEach(item => {
     let navListItems = item = `<li><a href="#${item.id}" class="menu__link" data-menu-link="${item.id}">${item.getAttribute("data-nav")}</a></li>`
@@ -50,18 +49,18 @@ window.addEventListener("scroll", event => {
     let fromTop = window.scrollY;
 
     allSections.forEach(item => {
-        let section = document.querySelector(`#${item.id}`);
+        let currentSection = document.querySelector(`#${item.id}`);
         let navLink = document.querySelector(`[data-menu-link='${item.id}']`);
 
         // Ternary operator
-        section.offsetTop - 300 <= fromTop &&
-            section.offsetTop - 300 + section.offsetHeight > fromTop ?
+        currentSection.offsetTop - 200 <= fromTop &&
+            currentSection.offsetTop - 200 + currentSection.offsetHeight > fromTop ?
             item.classList.add("active") & navLink.classList.add("active") :
             item.classList.remove("active") & navLink.classList.remove("active");
     });
 });
 
-// Scroll to anchor ID using scrollTO event
+// Scroll to anchor ID using scrollTO event and scroll to section on link click
 document.querySelectorAll('.menu__link').forEach(link => {
     link.addEventListener('click', function (event) {
         event.preventDefault();
