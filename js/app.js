@@ -102,6 +102,7 @@ window.onscroll = function () {
 let topBtn = document.querySelector(".goToTopBtn");
 
 function toggleBtnFunc() {
+    // Ternary operator
     document.body.scrollTop > 400 || document.documentElement.scrollTop > 400 ?
         topBtn.style.display = "block" :
         topBtn.style.display = "none";
