@@ -123,21 +123,3 @@ function goToTop() {
  * End Events
  * 
  */
-
-// Hide fixed navigation bar while not scrolling for 5s
-let isScrolling;
-window.addEventListener('scroll', function (event) {
-    window.clearTimeout(isScrolling);
-
-    isScrolling = setTimeout(function () {
-        navbarMenu.classList.add("navbar__menu__hide");
-        setTimeout(function () {
-            navbarMenu.classList.add("navbar__menu__remove");
-        }, 1000)
-
-    }, 4000);
-});
-
-window.onscroll = function () {
-    navbarMenu.classList.remove("navbar__menu__hide", "navbar__menu__remove");
-};
