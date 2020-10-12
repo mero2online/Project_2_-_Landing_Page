@@ -43,6 +43,12 @@ allSections.forEach(item => {
     navbarList.insertAdjacentHTML('beforeend', navListItems);
 });
 
+/**
+ * End Main Functions
+ * Begin Events
+ * 
+ */
+
 // Add class 'active' to section when near top of viewport
 // Set sections as active in navbar
 
@@ -73,12 +79,6 @@ document.querySelectorAll('.menu__link').forEach(link => {
     })
 });
 
-/**
- * End Main Functions
- * Begin Events
- * 
- */
-
 // Hide fixed navigation bar while not scrolling for 5s
 let isScrolling;
 window.addEventListener('scroll', function (event) {
@@ -94,5 +94,32 @@ window.addEventListener('scroll', function (event) {
 });
 
 window.onscroll = function () {
-    navbarMenu.classList.remove("navbar__menu__hide", "navbar__menu__remove");
+    navbarMenu.classList.remove("navbar__menu__hide", "navbar__menu__remove"); // To show navbar while scrolling
+    toggleBtnFunc() // to show and hide scroll to the top button while scrolling
 };
+
+// Click the button to scroll to the top of the page
+let topBtn = document.querySelector(".goToTopBtn");
+
+function toggleBtnFunc() {
+    document.body.scrollTop > 400 || document.documentElement.scrollTop > 400 ?
+        topBtn.style.display = "block" :
+        topBtn.style.display = "none";
+}
+
+function goToTop() {
+    document.body.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+    document.documentElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+/**
+ * 
+ * End Events
+ * 
+ */
