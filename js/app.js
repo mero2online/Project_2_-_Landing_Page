@@ -41,7 +41,7 @@ const navbarMenu = document.querySelector('.navbar__menu')
 allSections.forEach(item => {
     let navListItems = item = `<li><a href="#${item.id}" class="menu__link" data-menu-link="${item.id}">${item.getAttribute("data-nav")}</a></li>`
     navbarList.insertAdjacentHTML('beforeend', navListItems);
-});
+})
 
 /**
  * End Main Functions
@@ -65,7 +65,7 @@ window.addEventListener('scroll', event => {
             item.classList.add("active") & navLink.classList.add("active") :
             item.classList.remove("active") & navLink.classList.remove("active");
     });
-});
+})
 
 // Scroll to anchor ID using scrollTO event and scroll to section on link click
 document.querySelectorAll('.menu__link').forEach(link => {
@@ -75,9 +75,9 @@ document.querySelectorAll('.menu__link').forEach(link => {
         ele.scrollIntoView({
             behavior: "smooth",
             block: "start"
-        })
-    })
-});
+        });
+    });
+})
 
 // Hide fixed navigation bar while not scrolling for 5s
 let isScrolling;
@@ -88,15 +88,14 @@ window.addEventListener('scroll', function (event) {
         navbarMenu.classList.add("navbar__menu__hide");
         setTimeout(function () {
             navbarMenu.classList.add("navbar__menu__remove");
-        }, 1000)
-
+        }, 1000);
     }, 4000);
-});
+})
 
 window.onscroll = function () {
     navbarMenu.classList.remove("navbar__menu__hide", "navbar__menu__remove"); // To show navbar while scrolling
     toggleBtnFunc() // to show and hide scroll to the top button while scrolling
-};
+}
 
 // Click the button to scroll to the top of the page
 let topBtn = document.querySelector(".goToTopBtn");
