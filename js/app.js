@@ -20,6 +20,7 @@
 
 const navbarList = document.getElementById('navbar__list')
 const allSections = document.querySelectorAll('section')
+const navbarMenu = document.querySelector('.navbar__menu')
 
 /**
  * End Global Variables
@@ -45,7 +46,7 @@ allSections.forEach(item => {
 // Add class 'active' to section when near top of viewport
 // Set sections as active in navbar
 
-window.addEventListener("scroll", event => {
+window.addEventListener('scroll', event => {
     let fromTop = window.scrollY;
 
     allSections.forEach(item => {
@@ -77,3 +78,21 @@ document.querySelectorAll('.menu__link').forEach(link => {
  * Begin Events
  * 
  */
+
+// Hide fixed navigation bar while not scrolling for 5s
+let isScrolling;
+window.addEventListener('scroll', function (event) {
+    window.clearTimeout(isScrolling);
+
+    isScrolling = setTimeout(function () {
+        navbarMenu.classList.add("navbar__menu__hide");
+        setTimeout(function(){
+            navbarMenu.classList.add("navbar__menu__remove");
+        },1000)
+        
+    }, 4000);
+});
+
+window.onscroll = function () {
+    navbarMenu.classList.remove("navbar__menu__hide", "navbar__menu__remove");
+};

@@ -94,6 +94,15 @@ section {
   color: #fff;
 }
 
+.navbar__menu__hide {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.navbar__menu__remove {
+  display: none;
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;
