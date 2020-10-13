@@ -89,30 +89,6 @@ section {
   }
 }
 
-/* Apply hover for devices that can hover (desktops, laptops, non touch screen) */
-@media (hover: hover) {
-  /* Navbar hover */
-  .navbar__menu .menu__link:hover {
-    background: #657482;
-    color: #fff;
-    transition: ease 0.3s all;
-  }
-
-  /* Go to top button hover */
-  .goToTopBtn:hover {
-    background-color: #02b3e4;
-    color: #0f2b3d;
-    border: 3px solid #0f2b3d;
-    border-radius: 30%;
-  }
-
-  /* Go to top button tip hover */
-  .topBtnTip:hover span {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 .navbar__menu .active {
   background: #333;
   color: #fff;
@@ -159,6 +135,30 @@ section {
   z-index: 1;
   top: -48%;
   right: 101%;
+}
+
+/* Apply hover for devices that can hover (desktops, laptops, non touch screen) */
+@media (hover: hover) {
+  /* Navbar hover */
+  .navbar__menu .menu__link:hover {
+    background: #657482;
+    color: #fff;
+    transition: ease 0.3s all;
+  }
+
+  /* Go to top button hover */
+  .goToTopBtn:hover {
+    background-color: #02b3e4;
+    color: #0f2b3d;
+    border: 3px solid #0f2b3d;
+    border-radius: 30%;
+  }
+
+  /* Go to top button tip hover */
+  .topBtnTip:hover span {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 /* Header Styles */
