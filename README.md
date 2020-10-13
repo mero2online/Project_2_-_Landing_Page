@@ -1,7 +1,5 @@
 # Landing Page Project
 
----
-
 ## Main Object
 
 The object from this project is to **convert** this page from a _static_ page to an _interactive_ one.
